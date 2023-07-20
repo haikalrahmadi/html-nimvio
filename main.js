@@ -1,4 +1,3 @@
-
 const API_CD_URL =
   "https://api-dev.nimvio.com/cda/rest/v1/Project_1bf5d9a0-cf43-4cf3-b164-9fa7b93dccba/contents";
 
@@ -10,41 +9,22 @@ async function fetchJSONData() {
   return jsonData;
 }
 
-function getPathUrl(parameter) {
-  let currentUrl = window.location.href;
-  return currentUrl.endsWith(parameter);
-}
 // Processes the retrieved data and displays it on the page.
-function processData(response, i) {
-  const { Data } = response.data[i];
+function processData(response) {
+  const { Data } = response.data[0];
   const bodyText = Data.bodyText;
   const headline = Data.headline;
-  if (i === 0 || i === 1) {
-    const picture = Data.mediaUrl.MediaUrl;
-    document.getElementById("banner").src = picture;
-    document.getElementById("bodyText").innerHTML = bodyText;
-    document.getElementById("headline").append(headline);
-  } else if (i === 2) {
-    document.getElementById("bodyCHild").innerHTML = bodyText;
-    document.getElementById("headlineChild").append(headline);
-  }
+
+  const picture = Data.mediaUrl.MediaUrl;
+  document.getElementById("banner").src = picture;
+  document.getElementById("bodyText").innerHTML = bodyText;
+  document.getElementById("headline").append(headline);
 }
 
 // Render function
-async function render(index) {
+async function render() {
   const data = await fetchJSONData();
-  processData(data, index);
+  processData(data);
 }
 
-// Call render function
-if (getPathUrl("about.html") || getPathUrl("about")) {
-  render(1);
-}
-if (getPathUrl("index.html") || getPathUrl("/")) {
-  render(0);
-  // render(2);
-}
-
-
-
-
+render();
