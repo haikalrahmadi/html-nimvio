@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World with Nimvio</title>
+    <script src="main.js" async defer></script>
+    <style>
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+      }
+      img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+
+  <body data-nimvio-project-id="Project_1bf5d9a0-cf43-4cf3-b164-9fa7b93dccba">
+    <!-- The HTML elements are there only to display data from Nimvio.
+        Using JavaScript, you'll pull the content from your Nimvio project into the elements -->
+    <div
+      class="wrapper"
+      data-nimvio-content-id="Content_2885eb5c-4d26-44dc-8d41-5e0b9317e162"
+    >
+      <img id="banner" />
+      <h1 id="headline"></h1>
+      <p id="bodyText"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@nimvio/live-preview-sdk@0.1.4"></script>
+    <script type="text/javascript">
+      const nimvioSdk = WebLink.init({
+        // SDK configuration
+        queryParams: "preview",
+        disableWeblink: false,
+      });
+
+      // define the content id for the live preview when change the content
+      const contentID = "Content_2885eb5c-4d26-44dc-8d41-5e0b9317e162";
+
+      // live preview on content change
+      const previewChangeListener =
+        nimvioSdk.livePreviewUtils.onPreviewContentChange((newData) => {
+          const { id, formData } = newData;
+          if (id === contentID) { // check if the current preview content is same with the content edit
+            const { headline, bodyText, mediaUrl } = formData;
+            const sectionEl = document.querySelector(
+              `[data-nimvio-content-id=${contentID}]`
+            );
+            // headline update
+            sectionEl.querySelector("#headline").innerText = headline;
+            // body text update
+            // if the body is using RTE component, need to using innerHTML instead of innerText
+            sectionEl.querySelector("#bodyText").innerHTML = bodyText;
+            // media update
+            sectionEl.querySelector("#banner").src = mediaUrl.MediaUrl;
+          }
+        });
+
+      // Call the destroy method on the saved function when the app is unmounted to prevent memory leak
+      previewChangeListener.destroy();
+    </script>
+  </body>
+</html>

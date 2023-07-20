@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Child Nimvio</title>
+    <script src="main.js" async defer></script>
+    <style>
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+      }
+      img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+
+  <body data-nimvio-project-id="Project_1bf5d9a0-cf43-4cf3-b164-9fa7b93dccba">
+    <!-- The HTML elements are there only to display data from Nimvio.
+        Using JavaScript, you'll pull the content from your Nimvio project into the elements -->
+    <div
+      class="wrapper"
+      data-nimvio-content-id="Content_7ab0e5ae-4e1f-4741-aa25-c80f00bb758f"
+    >
+      <img id="banner" />
+      <h1 id="headline"></h1>
+      <p id="bodyText"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@nimvio/live-preview-sdk"></script>
+    <!-- <script type="text/javascript">
+      const nimvioSdk = WebLink.init({
+        // SDK configuration
+        queryParams: "preview",
+        disableWeblink: false,
+      });
+
+      nimvioSdk.setConfiguration({
+        // SDK Configuration
+        disableWeblink: true,
+      });
+    </script> -->
+  </body>
+</html>

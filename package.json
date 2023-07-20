@@ -1,0 +1,23 @@
+{
+  "name": "html-nimvio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GagaPoloJr/html-nimvio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GagaPoloJr/html-nimvio/issues"
+  },
+  "homepage": "https://github.com/GagaPoloJr/html-nimvio#readme",
+  "dependencies": {
+    "@nimvio/live-preview-sdk": "^0.1.4"
+  }
+}
