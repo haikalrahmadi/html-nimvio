@@ -16,8 +16,11 @@
       img {
         max-width: 100%;
       }
-      .disqus_thread-parent {
+      .comment-parent {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
       }
     </style>
   </head>
@@ -34,13 +37,23 @@
       <p id="bodyText"></p>
 
       <!-- COMMENT SECTIONS -->
-      <!-- Disqus -->
-      <div class="disqus_thread-parent">
+      <div class="comment-parent">
+        <!-- Commento -->
+        <div id="commento"></div>
+        <!-- Hyvor  -->
+        <hyvor-talk-comments website-id="9206" page-id=""></hyvor-talk-comments>
+        <!-- Disqus -->
         <div id="disqus_thread"></div>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@nimvio/live-preview-sdk@0.1.4"></script>
+    <script defer src="https://cdn.commento.io/js/commento.js"></script>
+    <script
+      async
+      src="https://talk.hyvor.com/embed/embed.js"
+      type="module"
+    ></script>
     <script type="text/javascript">
       const nimvioSdk = WebLink.init({
         // SDK configuration
