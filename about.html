@@ -2,35 +2,8 @@
 <html>
   <head>
     <title>Child Nimvio</title>
-    <script src="main.js" async defer></script>
-    <style>
-      .wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-width: 400px;
-        justify-content: center;
-        margin: 0 auto;
-        text-align: center;
-      }
-      img {
-        max-width: 100%;
-      }
-      nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
-      }
-      nav ul li a {
-        display: inline-block;
-        color: #1a1267;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-    </style>
+    <script src="js/main.js" async defer></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
   </head>
 
   <body data-nimvio-project-id="Project_1bf5d9a0-cf43-4cf3-b164-9fa7b93dccba">
@@ -50,8 +23,40 @@
       </nav>
       <h1 id="headline"></h1>
       <p id="bodyText"></p>
+
+      <div class="login-parent">
+        <!-- Auth0 -->
+        <button type="button" class="collapsible">Auth0</button>
+        <div class="content">
+          <h2>SPA Authentication Sample</h2>
+          <p>Welcome to our page!</p>
+          <button id="btn-login" disabled="true" onclick="login()">
+            Log in
+          </button>
+          <button id="btn-logout" disabled="true" onclick="logout()">
+            Log out
+          </button>
+
+          <div class="hidden" id="gated-content">
+            <p>
+              You're seeing this content because you're currently
+              <strong>logged in</strong>.
+            </p>
+            <label>
+              Access token:
+              <pre id="ipt-access-token"></pre>
+            </label>
+            <label>
+              User profile:
+              <pre id="ipt-user-profile"></pre>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@nimvio/live-preview-sdk"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src="js/app.js"></script>
     <!-- <script type="text/javascript">
       const nimvioSdk = WebLink.init({
         // SDK configuration

@@ -2,66 +2,8 @@
 <html>
   <head>
     <title>Hello World with Nimvio</title>
-    <script src="main.js" async defer></script>
-    <style>
-      .wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-width: 400px;
-        justify-content: center;
-        margin: 0 auto;
-        text-align: center;
-      }
-      img {
-        max-width: 100%;
-      }
-      nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
-      }
-      nav ul li a {
-        display: inline-block;
-        color: #1a1267;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      .comment-parent {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      /* Style the button that is used to open and close the collapsible content */
-      .collapsible {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-      }
-      /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-      .active,
-      .collapsible:hover {
-        background-color: #ccc;
-      }
-      /* Style the collapsible content. Note: hidden by default */
-      .content {
-        padding: 0 18px;
-        background-color: white;
-        max-height: 0;
-        overflow: scroll;
-        transition: max-height 0.2s ease-out;
-      }
-    </style>
+    <script src="./public/js/main.js" async defer></script>
+    <link rel="stylesheet" type="text/css" href="./public/css/main.css" />
   </head>
 
   <body data-nimvio-project-id="Project_1bf5d9a0-cf43-4cf3-b164-9fa7b93dccba">
@@ -110,20 +52,6 @@
       type="module"
     ></script>
     <script type="text/javascript">
-      const coll = document.getElementsByClassName("collapsible");
-
-      for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-          }
-        });
-      }
-
       /* Live Preview Setup */
       const nimvioSdk = WebLink.init({
         // SDK configuration
